@@ -13,7 +13,13 @@ return new class extends Migration
     {
         Schema::create('shifts', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('staff_id');
+            $table->string('shift_name');
+            $table->timestamp('start_time');
+            $table->timestamp('end_time');
             $table->timestamps();
+
+            $table->foreign('staff_id')->references('id')->on('staff')->onDelete('cascade');
         });
     }
 

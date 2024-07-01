@@ -13,7 +13,14 @@ return new class extends Migration
     {
         Schema::create('schedules', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('event_id');
+            $table->string('schedule_name');
+            $table->text('description')->nullable();
+            $table->timestamp('start_time');
+            $table->timestamp('end_time');
             $table->timestamps();
+    
+            $table->foreign('event_id')->references('id')->on('events')->onDelete('cascade');
         });
     }
 

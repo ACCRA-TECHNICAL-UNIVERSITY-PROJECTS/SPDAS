@@ -13,7 +13,14 @@ return new class extends Migration
     {
         Schema::create('mapdatas', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('staff_id');
+            $table->string('position');
+            $table->string('active')->default('0');
+            $table->timestamp('start_time')->nullable();
+            $table->timestamp('end_time')->nullable();
             $table->timestamps();
+    
+            $table->foreign('staff_id')->references('id')->on('staff')->onDelete('cascade');
         });
     }
 
