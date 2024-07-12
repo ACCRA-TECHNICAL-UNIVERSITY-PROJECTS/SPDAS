@@ -54,13 +54,13 @@
                 <div class="card-body tab-content">
                     <!-- Login Form -->
                     <div class="tab-pane fade show active" id="login" role="tabpanel" aria-labelledby="login-tab">
-                        <form method="POST" action="">
+                        <form method="POST" action="{{ route('login') }}">
                             @csrf
 
                             <div class="form-group">
                                 <label for="email">Staff ID</label>
-                                <input id="email" type="text" class="form-control @error('Staff ID') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-                                @error('email')
+                                <input id="email" type="text" class="form-control @error('staff_id') is-invalid @enderror" name="staff_id" value="{{ old('staff_id') }}" required autocomplete="staff_id" autofocus>
+                                @error('staff_id')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -91,7 +91,7 @@
 
                     <!-- Registration Form -->
                     <div class="tab-pane fade" id="register" role="tabpanel" aria-labelledby="register-tab">
-                        <form method="POST" action="">
+                        <form method="POST" action="{{ route('register') }}">
                             @csrf
 
                             <div class="form-group">
@@ -106,8 +106,8 @@
 
                             <div class="form-group">
                                 <label for="email">Staff ID</label>
-                                <input id="email" type="text" class="form-control @error('Staff ID') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-                                @error('email')
+                                <input id="email" type="text" class="form-control @error('staff_id') is-invalid @enderror" name="staff_id" value="{{ old('staff_id') }}" required autocomplete="staff_id">
+                                @error('staff_id')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

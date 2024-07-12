@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\login;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\PersonnelController;
@@ -15,7 +16,11 @@ use App\Http\Controllers\PersonnelController;
 |
 */
 
-Route::get('/', [AdminController::class, 'dashboard']);
+Route::get('/', [login::class, 'login']);
+Route::post('/auth', [login::class, 'authenticate'])->name('login');
+Route::post('/register', [login::class, 'register'])->name('register');
+
+Route::get('/admin', [AdminController::class, 'dashboard'])->name('dashboard');
 
 //Admin Routes
 Route::get('/admin/staff_management', [AdminController::class, 'staff_management']);

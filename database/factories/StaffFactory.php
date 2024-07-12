@@ -17,7 +17,13 @@ class StaffFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'staff_id' => $this->faker->unique()->randomNumber(5),
+            'name' => $this->faker->name(),
+            'email' => $this->faker->unique()->safeEmail(),
+            // 'phone_number' => $this->faker->phoneNumber(),
+            'address' => $this->faker->address(),
+            // 'role' => $this->faker->randomElement(['admin', 'security']),
+            // 'password' => $this->faker->password(),
         ];
     }
 }
